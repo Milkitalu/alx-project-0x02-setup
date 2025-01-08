@@ -1,5 +1,7 @@
 import Head from 'next/head';
 
+
+
 const Home = () => {
   return (
     <div>
@@ -11,6 +13,7 @@ const Home = () => {
 
       <main>
         <h1>Welcome to ALX Project 2</h1>
+
       </main>
     </div>
   );
