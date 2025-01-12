@@ -10,3 +10,8 @@ export interface CardProps {
     shape: 'rounded-sm' | 'rounded-md' | 'rounded-full';
   }
 
+  export interface PostProps {
+    title: string;
+    content: string;
+    userId: number;
+  }

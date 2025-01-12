@@ -1,14 +1,31 @@
 
-import Header from '@/components/layout/Header';
+import React, { useEffect, useState } from 'react';
+import PostCard from '../components/common/PostCard';
+import { PostProps } from '../interfaces';
 
-import React from 'react'
+const Posts: React.FC = () => {
+  const [posts, setPosts] = useState<PostProps[]>([]);
 
-function Posts() {
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+      const data = await response.json();
+      setPosts(data);
+    };
+
+    fetchPosts();
+  }, []);
+
   return (
-    <div>
-        <Header/>
+    <div className="container mx-auto">
+      <h1 className="text-4xl font-bold text-center mt-10">Posts</h1>
+      <div className="mt-10">
+        {posts.map((post) => (
+          <PostCard key={post.userId} {...post} />
+        ))}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Posts
+export default Posts;
