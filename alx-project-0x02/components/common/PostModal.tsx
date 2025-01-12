@@ -11,6 +11,7 @@ import React, { useState } from 'react';
 
      return (
        <div>
+        <form action="">
          <input
            type="text"
            value={title}
@@ -23,6 +24,7 @@ import React, { useState } from 'react';
            placeholder="Content"
          />
          <button onClick={handleSubmit}>Submit</button>
+         </form>
        </div>
      );
    };
